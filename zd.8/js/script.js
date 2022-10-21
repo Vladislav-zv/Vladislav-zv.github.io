@@ -1,8 +1,8 @@
 function sumSeconds()
 {
     let str = document.getElementById("result");
-    let D1_Zgh = prompt("Enter first day (D1):","");
-    let D2_Zgh = prompt("Enter second day (D2):","");
+    let D1_Zgh = parseInt(prompt("Enter first day (D1):",""));
+    let D2_Zgh = parseInt(prompt("Enter second day (D2):",""));
     let sumSeconds = 60*60*24;
 
     if(D1_Zgh > 31 || D1_Zgh < D2_Zgh)
