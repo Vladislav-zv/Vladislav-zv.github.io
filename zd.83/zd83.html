@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html lang="pl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <title>Zadanie 83 - Zghurskyi Vladyslav</title>
+
+
+        <script language="JavaScript">
+            function dni_zghurskyi(dzien,miesiac,rok) // function dni_kowalski(dzien,miesiac,rok)
+            {
+            d_liczba=parseFloat(dzien) // zamiana tekstu na liczbę, tekst który był parametrem funkcji
+            m_liczba=parseFloat(miesiac)
+            r_liczba=parseFloat(rok)
+            var dzis=new Date(); // utworzenie obiektu z dzisiejszą datą
+            var urodziny=new Date(r_liczba,m_liczba-1,d_liczba);
+            // utworzenie obiektu z datą urodzin użytkownika
+            // m_liczba-1 musi być -1 bo komputer styczeń=0
+            var czyRok; // zmienne pomocnicze
+            var czyMiesiac;
+            var czyDzien;
+            var ilosc_wynik = Math.floor((dzis - urodziny) / (1000 * 3600 * 24));
+            // Math.floor- metoda matematyczna zaokrąglająca
+            // różnica (dzis- urodziny) podaje wynik w milisekundach
+            // musisz przeliczyć na dni, zapisz w miejsce znaków zapytania.
+            document.getElementsByName('ilosc')[0].value=ilosc_wynik;
+            // wyprowadzanie do okienka formularza
+            //alert(???????????????????);
+            // wyprowadzanie do okienka alert
+            pokaz1.innerHTML="Ilość dni="+ilosc_wynik+" dni"+"<br>";
+            // wyprowadzenie do tabeli
+            czyRok = dzis.getFullYear();
+            czyMiesiac = dzis.getMonth();
+            czyDzien = dzis.getDate();
+            // przypisanie dzisiejszej daty do zmiennych
+            // teraz sprawdzanie warunków czy masz więcej czy mniej niż 18 lat
+            if ((czyRok==(r_liczba+18))&&(czyMiesiac==(m_liczba-1))&&(czyDzien==d_liczba))
+            {
+            pokaz2.innerHTML="Masz dziś 18 urodziny!";
+            }
+            if (czyRok<(r_liczba+18))
+            {
+            pokaz2.innerHTML="Nie masz jeszcze 18 lat!";
+            }
+            if ((czyRok==(r_liczba+18))&&(czyMiesiac<(m_liczba-1)))
+            {
+            pokaz2.innerHTML="Masz już 18 lat!";
+            }
+            if ((czyRok==(r_liczba+18))&&(czyMiesiac==(m_liczba-1))&&(czyDzien<d_liczba))
+            {
+            pokaz2.innerHTML="Masz już 18 lat!";
+            }
+            if (czyRok>(r_liczba+18))
+            {
+            pokaz2.innerHTML="Masz już 18 lat!";
+            }
+            if ((czyRok==(r_liczba+18))&&(czyMiesiac>(m_liczba-1)))
+            {
+            pokaz2.innerHTML="Nie masz jeszcze 18 lat!";
+            }
+            if ((czyRok==(r_liczba+18))&&(czyMiesiac==(m_liczba-1))&&(czyDzien>d_liczba))
+            {
+            pokaz2.innerHTML="Nie masz jeszcze 18 lat!";
+            }
+            if(ilosc_wynik>=365*18)
+            {
+            pokaz2.innerHTML="Masz już 18 lat!";
+            }
+        }
+    </script>
+            
+    </head>
+    <body style="background-color: rgb(239, 245, 245);">
+        <div class="container-fluid w-100 h-100">
+            <br/>
+            <input type="button" class="btn btn-danger m-1" value="Back" onclick="document.location='../index.html'">
+            <form name="formularz" action="..." onsubmit="dni_zghurskyi(this.dzien.value,this.miesiac.value,this.rok.value);return false">
+                Podaj dzień=
+                <input size="6" name="dzien">
+                Podaj miesiąc=
+                <input size="6" name="miesiac">
+                Podaj rok=
+                <input size="6" name="rok">
+                <br>
+                <br>
+                <input type="submit" Value="oblicz">
+                <br>
+                <br>
+                Ilość dni=
+                <input size="6" name="ilosc">
+                </form>
+                <table>
+                <tr id="pokaz1"></tr>
+                <tr id="pokaz2"></tr>
+                </table>
+        </div>
+    </body>
+    <script src="./js/script.js"></script>
+</html> 

@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="pl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!--         <link href="./styles/style.css" rel="stylesheet"> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <title> Zadanie 82</title>
+        <script language="JavaScript">
+            function pushbutton() {
+            alert("Czesc !");}
+        </script>
+    </head>
+    <body style="background-color: rgb(239, 245, 245);">
+        <div class="container-fluid w-100 h-100">
+            <br/>
+            <input type="button" class="btn btn-danger m-1" value="Back" onclick="document.location='../index.html'">
+            <h1 style="color: red;">Zghurskyi Vladyslav</h1>
+            <p style="color: green; font-size: large;">
+                dzis = new Date()--> twórzymy zmianą typu Date
+                <br>
+                dzis = dzis.getHours()--> bierzemy dane ze zmianej dzis(ilość godzin w tym czasie)
+                <br>
+                dzis = dzis.getMinutes()--> bierzemy dane ze zmianej dzis(ilość minut w tym czasie)
+                <br>
+                dzis = dzis.getMonth()+1--> bierzemy dane ze zmianej dzis(miesiąs+1, bo pierwszy m. jest 0 w tym czasie)
+                <br>
+                dzis = dzis.getDate()--> bierzemy dane ze zmianej dzis(dzisiejsza data)
+                <br>
+                dzis = dzis.getFullYear()--> bierzemy dane ze zmianej dzis(terażniejszy rok)
+            </p>
+            <script language="LiveScript">
+                document.write(document.lastModified,"<br>")
+               </script>
+               <form>
+                <input type="button" name="Button1" value="Naciśnij mnie" onclick="pushbutton()">
+               </form> 
+               <script language="JavaScript">
+                dzis = new Date()
+                document.write("<br>Aktualny czas : ",dzis.getHours(),":",dzis.getMinutes());
+                document.write("<br>Aktualna data : ","<p style='color: red;display:inline-block;'>",
+                    dzis.getDate(),"</p>:<p style='color: green;display:inline-block;'>",
+                        dzis.getMonth()+1,"</p>:<p style='color: blue;display:inline-block;'>",
+                            dzis.getFullYear(),"</p>");
+            </script>
+        </div>
+    </body>
+    <script src="./js/script.js"></script>
+</html> 
