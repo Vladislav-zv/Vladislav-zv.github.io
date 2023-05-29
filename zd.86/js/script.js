@@ -6,7 +6,7 @@ function btn_1()
 function btn_2()
 {
   let date = new Date();
-  document.getElementById("content").innerHTML+="Data: "+date.getDate()+":"+date.getMonth()+":"+date.getFullYear()+"<br/>";
+  document.getElementById("content").innerHTML+="Data: "+date.getDate()+":"+(date.getMonth()+1)+":"+date.getFullYear()+"<br/>";
 }
 
 function btn_3()
